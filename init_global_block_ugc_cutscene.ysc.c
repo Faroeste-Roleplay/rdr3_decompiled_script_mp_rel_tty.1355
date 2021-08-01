@@ -1,0 +1,14 @@
+void __EntryFunction__()
+{
+	DEBUG::_0xF0783374333FD8CE(8, 0, "init_global_block_ugc_cutscene - GLOBALS_BLOCK_UGC_CUTSCENE allocated.");
+	if (SCRIPTS::_DOES_COMPRESSED_GLOBAL_BLOCK_BUFFER_EXIST(14))
+	{
+		SCRIPTS::_RESTORE_GLOBAL_BLOCK(14);
+	}
+	else
+	{
+		SCRIPTS::_STORE_GLOBAL_BLOCK(14);
+	}
+	SCRIPTS::TERMINATE_THIS_THREAD();
+}
+

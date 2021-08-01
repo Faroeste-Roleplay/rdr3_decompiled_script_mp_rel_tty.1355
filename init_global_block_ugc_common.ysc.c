@@ -1,0 +1,14 @@
+void __EntryFunction__()
+{
+	DEBUG::_0xF0783374333FD8CE(8, 0, "init_global_block_ugc_common - GLOBALS_BLOCK_UGC_COMMON allocated.");
+	if (SCRIPTS::_DOES_COMPRESSED_GLOBAL_BLOCK_BUFFER_EXIST(12))
+	{
+		SCRIPTS::_RESTORE_GLOBAL_BLOCK(12);
+	}
+	else
+	{
+		SCRIPTS::_STORE_GLOBAL_BLOCK(12);
+	}
+	SCRIPTS::TERMINATE_THIS_THREAD();
+}
+

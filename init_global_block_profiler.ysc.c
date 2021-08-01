@@ -1,0 +1,14 @@
+void __EntryFunction__()
+{
+	DEBUG::_0xF0783374333FD8CE(8, 0, "init_global_block_ugc - GLOBALS_BLOCK_PROFILER allocated.");
+	if (SCRIPTS::_DOES_COMPRESSED_GLOBAL_BLOCK_BUFFER_EXIST(3))
+	{
+		SCRIPTS::_RESTORE_GLOBAL_BLOCK(3);
+	}
+	else
+	{
+		SCRIPTS::_STORE_GLOBAL_BLOCK(3);
+	}
+	SCRIPTS::TERMINATE_THIS_THREAD();
+}
+

@@ -1,0 +1,14 @@
+void __EntryFunction__()
+{
+	DEBUG::_0xF0783374333FD8CE(8, 0, "init_global_block_ugc - GLOBALS_BLOCK_MC_RACE allocated.");
+	if (SCRIPTS::_DOES_COMPRESSED_GLOBAL_BLOCK_BUFFER_EXIST(8))
+	{
+		SCRIPTS::_RESTORE_GLOBAL_BLOCK(8);
+	}
+	else
+	{
+		SCRIPTS::_STORE_GLOBAL_BLOCK(8);
+	}
+	SCRIPTS::TERMINATE_THIS_THREAD();
+}
+

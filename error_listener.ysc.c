@@ -1,0 +1,1503 @@
+#region Local Var
+	var uLocal_0 = 7;
+	var uLocal_1 = 0;
+	var uLocal_2 = 0;
+	var uLocal_3 = 0;
+	var uLocal_4 = 0;
+	var uLocal_5 = 0;
+	var uLocal_6 = 0;
+	var uLocal_7 = 0;
+	var uLocal_8 = -1;
+	var uLocal_9 = 0;
+	var uLocal_10 = 0;
+	var uLocal_11 = 0;
+	var uLocal_12 = 0;
+#endregion
+
+void __EntryFunction__()
+{
+	bool bVar0;
+
+	DEBUG::_0xA308F935BDECCEC0(8, 0, "[EL]*********************************************************");
+	DEBUG::_0xA308F935BDECCEC0(168, 0, "[EL]** SCRIPT STARTUP - ", UNK_0x8F77B33B6A34D8BA(), " **");
+	DEBUG::_0xA308F935BDECCEC0(8, 0, "[EL]*********************************************************");
+	func_1();
+	MISC::NETWORK_SET_SCRIPT_IS_SAFE_FOR_NETWORK_GAME();
+	NETWORK::NETWORK_SET_SCRIPT_READY_FOR_EVENTS(true);
+	bVar0 = false;
+	while (!bVar0)
+	{
+		if (func_2() != -1)
+		{
+			bVar0 = func_3(1, 1);
+		}
+		else
+		{
+			bVar0 = SCRIPTS::_0x9E4EF615E307FBBE();
+		}
+		func_4();
+		BUILTIN::WAIT(0);
+	}
+	func_5();
+	DEBUG::_0xA308F935BDECCEC0(8, 0, "[EL]*********************************************************");
+	DEBUG::_0xA308F935BDECCEC0(168, 0, "[EL]** SCRIPT SHUTDOWN - ", UNK_0x8F77B33B6A34D8BA(), " **");
+	DEBUG::_0xA308F935BDECCEC0(8, 0, "[EL]*********************************************************");
+	SCRIPTS::TERMINATE_THIS_THREAD();
+}
+
+void func_1()
+{
+	Global_26037.f_324[0 /*8*/] = 0.5f;
+	Global_26037.f_324[0 /*8*/].f_1 = 0.085f;
+	Global_26037.f_324[0 /*8*/].f_2 = 0.9f;
+	Global_26037.f_324[0 /*8*/].f_3 = 0.12f;
+	Global_26037.f_324[1 /*8*/] = 0.5f;
+	Global_26037.f_324[1 /*8*/].f_1 = 0.16f;
+	Global_26037.f_324[1 /*8*/].f_2 = 0.9f;
+	Global_26037.f_324[1 /*8*/].f_3 = 0.03f;
+	Global_26037.f_324[1 /*8*/].f_4 = 100;
+	Global_26037.f_324[1 /*8*/].f_5 = 60;
+	Global_26037.f_324[1 /*8*/].f_6 = 58;
+	Global_26037.f_324[1 /*8*/].f_7 = 200;
+	Global_26037.f_197[0 /*21*/] = 1;
+	Global_26037.f_197[0 /*21*/].f_3 = 0.5f;
+	Global_26037.f_197[0 /*21*/].f_4 = 0.03f;
+	Global_26037.f_197[0 /*21*/].f_1 = 0.1f;
+	Global_26037.f_197[0 /*21*/].f_2 = 0.5f;
+	Global_26037.f_197[1 /*21*/] = 1;
+	Global_26037.f_197[1 /*21*/].f_3 = 0.5f;
+	Global_26037.f_197[1 /*21*/].f_4 = 0.065f;
+	Global_26037.f_197[1 /*21*/].f_1 = 0.1f;
+	Global_26037.f_197[1 /*21*/].f_2 = 0.5f;
+	Global_26037.f_197[2 /*21*/] = 1;
+	Global_26037.f_197[2 /*21*/].f_3 = 0.5f;
+	Global_26037.f_197[2 /*21*/].f_4 = 0.1f;
+	Global_26037.f_197[2 /*21*/].f_1 = 0.1f;
+	Global_26037.f_197[2 /*21*/].f_2 = 0.5f;
+	Global_26037.f_197[3 /*21*/] = 1;
+	Global_26037.f_197[3 /*21*/].f_3 = 0.89f;
+	Global_26037.f_197[3 /*21*/].f_4 = 0.03f;
+	Global_26037.f_197[3 /*21*/].f_1 = 0f;
+	Global_26037.f_197[3 /*21*/].f_2 = 0.294f;
+	StringCopy(&(Global_26037.f_197[3 /*21*/].f_5), "Ctrl + Num8 - Show/Hide", 128);
+	Global_26037.f_197[4 /*21*/] = 1;
+	Global_26037.f_197[4 /*21*/].f_3 = 0.088f;
+	Global_26037.f_197[4 /*21*/].f_4 = 0.03f;
+	Global_26037.f_197[4 /*21*/].f_1 = 0f;
+	Global_26037.f_197[4 /*21*/].f_2 = 0.294f;
+	Global_26037.f_197[5 /*21*/] = 1;
+	Global_26037.f_197[5 /*21*/].f_3 = 0.5f;
+	Global_26037.f_197[5 /*21*/].f_4 = 0.148f;
+	Global_26037.f_197[5 /*21*/].f_1 = 0.1f;
+	Global_26037.f_197[5 /*21*/].f_2 = 0.3f;
+	StringCopy(&(Global_26037.f_197[5 /*21*/].f_5), "Critical error detected, this might cause unexpected behaviour. Please restart the game.", 128);
+}
+
+int func_2()
+{
+	return Global_1572887.f_13;
+}
+
+int func_3(bool bParam0, bool bParam1)
+{
+	int iVar0;
+
+	if (Global_1572887.f_12)
+	{
+		return 0;
+	}
+	if (!NETWORK::NETWORK_IS_GAME_IN_PROGRESS())
+	{
+		if (bParam1 && NETWORK::_0xF2CBC969C4F090C7())
+		{
+			DEBUG::_0xF0783374333FD8CE(8, 8, "KILL_EVENT_CAUGHT - NETWORK_IS_GAME_IN_PROGRESS() = FALSE - but bIgnoreTransition = TRUE and NETWORK_SESSION_IS_TRANSITIONING = TRUE, so skipping");
+		}
+		else if (bParam1 && NETWORK::NETWORK_IS_SESSION_ACTIVE())
+		{
+			DEBUG::_0xF0783374333FD8CE(8, 8, "KILL_EVENT_CAUGHT - NETWORK_IS_GAME_IN_PROGRESS() = FALSE - but bIgnoreTransition = TRUE and NETWORK_SESSION_IS_ACTIVE = TRUE, so skipping");
+		}
+		else if (bParam1 && Global_1572887 < 39)
+		{
+			DEBUG::_0xF0783374333FD8CE(168, 8, "KILL_EVENT_CAUGHT - NETWORK_IS_GAME_IN_PROGRESS() = FALSE - but bIgnoreTransition = TRUE and g_mpTransition.eMPState = ", func_6(Global_1572887, 0), ", so skipping");
+		}
+		else
+		{
+			DEBUG::_0xF0783374333FD8CE(8, 8, "KILL_EVENT_CAUGHT - NETWORK_IS_GAME_IN_PROGRESS() = FALSE");
+			return 1;
+		}
+	}
+	if (!NETWORK::NETWORK_IS_SIGNED_ONLINE())
+	{
+		DEBUG::_0xF0783374333FD8CE(8, 8, "KILL_EVENT_CAUGHT - NETWORK_IS_SIGNED_ONLINE = FALSE");
+		return 1;
+	}
+	if (SCRIPTS::_0x9E4EF615E307FBBE())
+	{
+		switch (SCRIPTS::_0x54AE4FDEEFEAB77E())
+		{
+			case 0:
+				DEBUG::_0xF0783374333FD8CE(8, 8, "KILL_EVENT_CAUGHT - THREAD_EXIT_REQUESTED = THREAD_EXIT_REASON_NONE");
+				return 1;
+			case 1:
+				DEBUG::_0xF0783374333FD8CE(8, 8, "KILL_EVENT_CAUGHT - THREAD_EXIT_REQUESTED = THREAD_EXIT_REASON_BACKGROUND_THREAD_STOPPED");
+				return 1;
+			case 2:
+				DEBUG::_0xF0783374333FD8CE(8, 8, "KILL_EVENT_CAUGHT - THREAD_EXIT_REQUESTED = THREAD_EXIT_REASON_SESSION_MERGE");
+				if (!bParam0)
+				{
+					return 1;
+				}
+				else
+				{
+					DEBUG::_0xF0783374333FD8CE(8, 8, "KILL_EVENT_CAUGHT - THREAD_EXIT_REQUESTED = THREAD_EXIT_REASON_SESSION_MERGE - but bIgnoreSessionMerge = TRUE, so skipping");
+				}
+				break;
+			case 4:
+				DEBUG::_0xF0783374333FD8CE(8, 8, "KILL_EVENT_CAUGHT - THREAD_EXIT_REQUESTED = THREAD_EXIT_REASON_REQUESTED_BY_SCRIPT");
+				return 1;
+			case 3:
+				DEBUG::_0xF0783374333FD8CE(8, 8, "KILL_EVENT_CAUGHT - THREAD_EXIT_REQUESTED = THREAD_EXIT_REASON_SCENARIO_OUT_OF_SCOPE");
+				return 1;
+			default:
+				DEBUG::_0xF0783374333FD8CE(8, 8, "KILL_EVENT_CAUGHT - THREAD_EXIT_REQUESTED = UNKNOWN");
+				return 1;
+		}
+	}
+	iVar0 = 0;
+	while (iVar0 < SCRIPTS::GET_NUMBER_OF_EVENTS(1))
+	{
+		if (SCRIPTS::GET_EVENT_AT_INDEX(1, iVar0) == 1976253964)
+		{
+			DEBUG::_0xF0783374333FD8CE(8, 32, "KILL_EVENT_CAUGHT - EVENT_NETWORK_NETWORK_BAIL caught.  Bailing from MP.");
+			return 1;
+		}
+		iVar0++;
+	}
+	return 0;
+}
+
+void func_4()
+{
+	func_7();
+	if (func_8())
+	{
+		if (Global_26037.f_196)
+		{
+			Global_26037.f_192 = 1;
+		}
+		else
+		{
+			Global_26037.f_192 = func_9() > 1;
+		}
+		Global_26037.f_193 = func_10();
+		Global_26037.f_194 = func_10();
+	}
+	else
+	{
+		Global_26037.f_196 = 0;
+		Global_26037.f_192 = Global_26037.f_195;
+		Global_26037.f_194 = Global_26037.f_195;
+		Global_26037.f_193 = Global_26037.f_195;
+		return;
+	}
+	func_11(1);
+	func_12(&(Global_26037.f_1[0 /*19*/]));
+	func_13();
+	func_11(0);
+}
+
+void func_5()
+{
+	DEBUG::_0xA308F935BDECCEC0(8, 0, "[EL] - Cleanup");
+	func_11(0);
+}
+
+char* func_6(int iParam0, int iParam1)
+{
+	switch (iParam0)
+	{
+		case 0:
+			return "MP_STATE__INIT__STARTUP";
+		case 1:
+			return "MP_STATE__INIT__RESURRECT_PLAYER";
+		case 2:
+			return "MP_STATE__INIT__VERIFY_PLAYER_RESURRECTION";
+		case 3:
+			return "MP_STATE__INIT__KILL_EXISTING_THREADS";
+		case 4:
+			return "MP_STATE__INIT__WAIT_FOR_THREAD_TERMINATION";
+		case 5:
+			return "MP_STATE__INIT__KILL_EXISTING_SESSION";
+		case 6:
+			return "MP_STATE__INIT__WAIT_FOR_SESSION_END";
+		case 7:
+			return "MP_STATE__INIT__WIPE_ACCOUNT_DATA";
+		case 8:
+			return "MP_STATE__INIT__REINITIALIZE_GLOBAL_DATA";
+		case 9:
+			return "MP_STATE__INIT__START_TUNABLES_LOAD";
+		case 10:
+			return "MP_STATE__INIT__VALIDATE_TUNABLES_LOAD";
+		case 11:
+			return "MP_STATE__INIT__PREPARE_TRANSITION";
+		case 12:
+			return "MP_STATE__INIT__VALIDATE_GAMER_HANDLE";
+		case 13:
+			return "MP_STATE__INIT__GAME_FRAMEWORK_MANAGER_INIT";
+		case 14:
+			return "MP_STATE__TRANSITION__START";
+		case 15:
+			return "MP_STATE__TRANSITION__SAVE_DATA__WIPE_ON_LOAD";
+		case 16:
+			return "MP_STATE__TRANSITION__SAVE_DATA__END";
+		case 17:
+			return "MP_STATE__TRANSITION__SAVE_DATA__INITIALIZE_INVENTORY";
+		case 18:
+			return "MP_STATE__TRANSITION__SAVE_DATA__LOAD_INVENTORY";
+		case 19:
+			return "MP_STATE__TRANSITION__POSSE__SET_UP_POSSE_TRANSITION";
+		case 20:
+			return "MP_STATE__TRANSITION__UGC__START";
+		case 21:
+			return "MP_STATE__TRANSITION__UGC__CONFIRM_LOAD";
+		case 22:
+			return "MP_STATE__TRANSITION__SESSION__START";
+		case 23:
+			return "MP_STATE__TRANSITION__SESSION__WAIT_FOR_DEBUG_PROGRESSION";
+		case 24:
+			return "MP_STATE__TRANSITION__SESSION__PREPARE_FOR_SESSION_TRANSITION";
+		case 25:
+			return "MP_STATE__TRANSITION__SESSION__TERMINATE_EXISTING_SESSION";
+		case 26:
+			return "MP_STATE__TRANSITION__SESSION__REQUEST_SESSION";
+		case 27:
+			return "MP_STATE__TRANSITION__SESSION__CONFIRM_SESSION_REQUEST";
+		case 28:
+			return "MP_STATE__TRANSITION__THREAD__START";
+		case 29:
+			return "MP_STATE__TRANSITION__THREAD__LOAD_DEBUG_UPDATE";
+		case 30:
+			return "MP_STATE__TRANSITION__THREAD__LOAD_NET_MAIN_OFFLINE";
+		case 31:
+			return "MP_STATE__TRANSITION__THREAD__WAIT_FOR_NET_MAIN_OFFLINE";
+		case 32:
+			return "MP_STATE__TRANSITION__THREAD__LOAD_AUTO_START_THREAD";
+		case 33:
+			return "MP_STATE__TRANSITION__THREAD__LOAD_SP_MAIN_THREADS";
+		case 34:
+			return "MP_STATE__TRANSITION__THREAD__LOAD_MISSION_CREATOR";
+		case 35:
+			return "MP_STATE__TRANSITION__END";
+		case 36:
+			return "MP_STATE__BAIL__START";
+		case 37:
+			return "MP_STATE__BAIL__CONFIRM_BAIL_TO_FRONTEND";
+		case 38:
+			return "MP_STATE__BAIL__END";
+		case 39:
+			return "MP_STATE__MAIN__UPDATE";
+		default:
+			break;
+	}
+	if (iParam1 >= 1)
+	{
+		DEBUG::_0x83407B92D46F25C3(136, 0, "ERROR ENUM_TO_STRING - Unknown Enum Value ", iParam0, ", returning 'ENUM_NOT_FOUND'");
+	}
+	return "ENUM_NOT_FOUND";
+	if (iParam1 >= 1)
+	{
+		DEBUG::_0x83407B92D46F25C3(136, 0, "ERROR ENUM_TO_STRING - Unknown Enum Value ", iParam0, ", returning 'ENUM_NOT_FOUND'");
+	}
+	return "ENUM_NOT_FOUND";
+}
+
+void func_7()
+{
+	bool bVar0;
+	int iVar1;
+	int iVar2;
+
+	iVar1 = 0;
+	while (iVar1 < SCRIPTS::GET_NUMBER_OF_EVENTS(4))
+	{
+		iVar2 = SCRIPTS::GET_EVENT_AT_INDEX(4, iVar1);
+		if (SCRIPTS::GET_EVENT_DATA(4, iVar1, &bVar0, 1))
+		{
+			if (func_14(bVar0, iVar2))
+			{
+			}
+		}
+		iVar1++;
+	}
+}
+
+bool func_8()
+{
+	return Global_26037.f_195;
+}
+
+int func_9()
+{
+	return Global_26037;
+}
+
+bool func_10()
+{
+	return Global_26037.f_1[0 /*19*/].f_17 != 0;
+}
+
+void func_11(bool bParam0)
+{
+	DEBUG::_0xA308F935BDECCEC0(8, 0, "[EL][CUSTOM_ON_SCREEN_MENU_DRAW_ORDER] bSet: ", bParam0);
+	if (bParam0)
+	{
+		GRAPHICS::SET_SCRIPT_GFX_DRAW_BEHIND_PAUSEMENU(true);
+		GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(7);
+	}
+	else
+	{
+		GRAPHICS::SET_SCRIPT_GFX_DRAW_BEHIND_PAUSEMENU(false);
+		GRAPHICS::SET_SCRIPT_GFX_DRAW_ORDER(4);
+	}
+}
+
+void func_12(char* sParam0)
+{
+	float fVar0;
+	float fVar1;
+
+	if (!Global_26037.f_193)
+	{
+		return;
+	}
+	fVar0 = (IntToFloat(MISC::GET_GAME_TIMER()) / 1000f);
+	fVar1 = ((0.5f * BUILTIN::SIN((250f * (fVar0 - 0f)))) + 0.5f);
+	Global_26037.f_324[0 /*8*/].f_4 = BUILTIN::FLOOR(func_15(200f, 100f, fVar1));
+	Global_26037.f_324[0 /*8*/].f_5 = BUILTIN::FLOOR(func_15(4f, 60f, fVar1));
+	Global_26037.f_324[0 /*8*/].f_6 = BUILTIN::FLOOR(func_15(0f, 58f, fVar1));
+	Global_26037.f_324[0 /*8*/].f_7 = BUILTIN::FLOOR(func_15(200f, 200f, fVar1));
+	func_16(&(Global_26037.f_324[0 /*8*/]));
+	StringCopy(&(Global_26037.f_197[0 /*21*/].f_5), "Script: '", 128);
+	StringConCat(&(Global_26037.f_197[0 /*21*/].f_5), sParam0, 128);
+	StringConCat(&(Global_26037.f_197[0 /*21*/].f_5), "'", 128);
+	func_17(&(Global_26037.f_197[0 /*21*/]));
+	StringCopy(&(Global_26037.f_197[1 /*21*/].f_5), func_18(sParam0->f_17), 128);
+	func_17(&(Global_26037.f_197[1 /*21*/]));
+	StringCopy(&(Global_26037.f_197[2 /*21*/].f_5), "Frame: ", 128);
+	StringIntConCat(&(Global_26037.f_197[2 /*21*/].f_5), sParam0->f_18, 128);
+	func_17(&(Global_26037.f_197[2 /*21*/]));
+	StringCopy(&(Global_26037.f_197[4 /*21*/].f_5), "Error Count: ", 128);
+	StringIntConCat(&(Global_26037.f_197[4 /*21*/].f_5), func_9(), 128);
+	func_17(&(Global_26037.f_197[4 /*21*/]));
+}
+
+void func_13()
+{
+	if (!Global_26037.f_194)
+	{
+		return;
+	}
+	func_16(&(Global_26037.f_324[1 /*8*/]));
+	func_17(&(Global_26037.f_197[5 /*21*/]));
+}
+
+bool func_14(bool bParam0, int iParam1)
+{
+	int iVar0;
+	int iVar1;
+
+	iVar0 = 9;
+	while (iVar0 >= 0)
+	{
+		if (iVar0 == 0)
+		{
+			StringCopy(&(Global_26037.f_1[iVar0 /*19*/]), func_19(bParam0), 128);
+			Global_26037.f_1[iVar0 /*19*/].f_16 = bParam0;
+			Global_26037.f_1[iVar0 /*19*/].f_17 = iParam1;
+			Global_26037.f_1[iVar0 /*19*/].f_18 = MISC::GET_FRAME_COUNT();
+		}
+		iVar1 = (iVar0 - 1);
+		if (iVar1 < 0)
+		{
+		}
+		else
+		{
+			MISC::_COPY_MEMORY(&(Global_26037.f_1[iVar0 /*19*/]), &(Global_26037.f_1[iVar1 /*19*/]), 19);
+		}
+		iVar0 = (iVar0 + -1);
+	}
+	Global_26037++;
+	DEBUG::_0xA308F935BDECCEC0(35496, 0, "[EL][POOL] New Error Added - ScriptName: ", UNK_0x4379B6FA65D55295(bParam0), " Error: ", func_20(iParam1, 0), " Frame: ", MISC::GET_FRAME_COUNT(), " Total Error Count: ", Global_26037);
+	return true;
+}
+
+float func_15(float fParam0, float fParam1, float fParam2)
+{
+	return (((1f - fParam2) * fParam0) + (fParam2 * fParam1));
+}
+
+void func_16(var uParam0)
+{
+	GRAPHICS::DRAW_RECT(*uParam0, uParam0->f_1, uParam0->f_2, uParam0->f_3, uParam0->f_4, uParam0->f_5, uParam0->f_6, uParam0->f_7, false, true);
+}
+
+void func_17(var uParam0)
+{
+	if (*uParam0)
+	{
+		HUD::SET_TEXT_CENTRE(true);
+	}
+	HUD::SET_TEXT_DROPSHADOW(0, 0, 0, 0, 255);
+	HUD::SET_TEXT_SCALE(uParam0->f_1, uParam0->f_2);
+	func_21(uParam0->f_3, uParam0->f_4, "STRING", &(uParam0->f_5));
+}
+
+char* func_18(int iParam0)
+{
+	switch (iParam0)
+	{
+		case -921472336:
+			return "UNKNOWN ERROR";
+		case -992702923:
+			return "ARRAY OVERRUN";
+		case 397004310:
+			return "INSTRUCTION LIMIT";
+		case 2004694700:
+			return "STACK OVERFLOW";
+		case -1009774763:
+			return "GLOBAL BLOCK INACCESSIBLE";
+		case 1028822748:
+			return "GLOBAL BLOCK NOT RESIDENT";
+		default:
+			break;
+	}
+	return func_19(iParam0);
+}
+
+char* func_19(int iParam0)
+{
+	return MISC::_0x2B6846401D68E563(BUILTIN::TO_FLOAT(iParam0), 0);
+}
+
+char* func_20(int iParam0, int iParam1)
+{
+	switch (iParam0)
+	{
+		case joaat("EVENT_WITHIN_GUN_COMBAT_AREA"):
+			return "EVENT_WITHIN_GUN_COMBAT_AREA";
+		case -2129179673:
+			return "EVENT_CALM_HORSE";
+		case -2122443649:
+			return "EVENT_CATCH_ITEM";
+		case -2119801478:
+			return "EVENT_NETWORK_SESSION_MERGE_END";
+		case -2117667982:
+			return "EVENT_NETWORK_LASSO_DETACH";
+		case joaat("EVENT_SHOCKING_BEAT_TERRIFYING_NEW"):
+			return "EVENT_SHOCKING_BEAT_TERRIFYING_NEW";
+		case joaat("EVENT_SHOCKING_PED_DROPPED"):
+			return "EVENT_SHOCKING_PED_DROPPED";
+		case -2100213574:
+			return "EVENT_NETWORK_CREW_INVITE_REQUEST_RECEIVED";
+		case -2095977185:
+			return "EVENT_NETWORK_PLATFORM_INVITE_ACCEPTED";
+		case -2091944374:
+			return "EVENT_CALCULATE_LOOT";
+		case -2090275807:
+			return "EVENT_REVIVED";
+		case joaat("EVENT_INTERACTION"):
+			return "EVENT_INTERACTION";
+		case -2052708993:
+			return "EVENT_SWITCH_2_NM_TASK";
+		case joaat("EVENT_SHOCKING_BAIT_DROPPED"):
+			return "EVENT_SHOCKING_BAIT_DROPPED";
+		case -2036121834:
+			return "EVENT_NETWORK_PROJECTILE_ATTACHED";
+		case joaat("EVENT_SHOCKING_BAR_BRAWL_ACTION"):
+			return "EVENT_SHOCKING_BAR_BRAWL_ACTION";
+		case joaat("EVENT_MOUNT_DAMAGED_BY_PLAYER"):
+			return "EVENT_MOUNT_DAMAGED_BY_PLAYER";
+		case joaat("EVENT_SHOCKING_SUBMERGED_VEHICLE"):
+			return "EVENT_SHOCKING_SUBMERGED_VEHICLE";
+		case joaat("EVENT_SHOCKING_SEEN_PED_ROBBED"):
+			return "EVENT_SHOCKING_SEEN_PED_ROBBED";
+		case -2020006491:
+			return "EVENT_NETWORK_POSSE_EX_ADMIN_DISBANDED";
+		case joaat("EVENT_PLAYER_APPROACHED"):
+			return "EVENT_PLAYER_APPROACHED";
+		case joaat("EVENT_SHOCKING_STUDIO_BOMB"):
+			return "EVENT_SHOCKING_STUDIO_BOMB";
+		case -2001102517:
+			return "EVENT_NETWORK_PLAYER_JOIN_SCRIPT";
+		case joaat("EVENT_SHOCKING_BREACH_ATTEMPT"):
+			return "EVENT_SHOCKING_BREACH_ATTEMPT";
+		case -1985279805:
+			return "EVENT_CALM_PED";
+		case joaat("EVENT_ACQUAINTANCE_PED_DISLIKE"):
+			return "EVENT_ACQUAINTANCE_PED_DISLIKE";
+		case joaat("EVENT_SHOCKING_SEEN_WEIRD_PED_APPROACHING"):
+			return "EVENT_SHOCKING_SEEN_WEIRD_PED_APPROACHING";
+		case -1961481354:
+			return "EVENT_CALL_FOR_COVER";
+		case joaat("EVENT_SHOCKING_REACTION_TEST_LOW"):
+			return "EVENT_SHOCKING_REACTION_TEST_LOW";
+		case -1936963085:
+			return "EVENT_DEBUG_SETUP_CUTSCENE_WORLD_STATE";
+		case joaat("EVENT_ANIMAL_RESPONDED_TO_THREAT"):
+			return "EVENT_ANIMAL_RESPONDED_TO_THREAT";
+		case joaat("EVENT_SHOCKING_BEAT_SURPRISING"):
+			return "EVENT_SHOCKING_BEAT_SURPRISING";
+		case -1905067041:
+			return "EVENT_VOICE_CONNECTION_TERMINATED";
+		case joaat("EVENT_PED_COLLISION_WITH_PED"):
+			return "EVENT_PED_COLLISION_WITH_PED";
+		case joaat("EVENT_SHOCKING_PLAYER_CROUCHING"):
+			return "EVENT_SHOCKING_PLAYER_CROUCHING";
+		case joaat("EVENT_PED_JACKING_MY_VEHICLE"):
+			return "EVENT_PED_JACKING_MY_VEHICLE";
+		case joaat("EVENT_SHOT_FIRED_WHIZZED_BY_ENTITY"):
+			return "EVENT_SHOT_FIRED_WHIZZED_BY_ENTITY";
+		case -1863021589:
+			return "EVENT_VEHICLE_CREATED";
+		case joaat("EVENT_SHOCKING_WEAPON_DRAWN"):
+			return "EVENT_SHOCKING_WEAPON_DRAWN";
+		case -1832939826:
+			return "EVENT_NETWORK_SYSTEM_SERVICE_EVENT";
+		case joaat("EVENT_VEHICLE_ON_FIRE"):
+			return "EVENT_VEHICLE_ON_FIRE";
+		case -1816722641:
+			return "EVENT_PLAYER_ESCALATED_PED";
+		case joaat("EVENT_SHOCKING_PLAYER_DUEL"):
+			return "EVENT_SHOCKING_PLAYER_DUEL";
+		case -1778603064:
+			return "EVENT_ACQUAINTANCE_PED_LIKE";
+		case joaat("EVENT_SHOCKING_LOCK_PICKED"):
+			return "EVENT_SHOCKING_LOCK_PICKED";
+		case -1749240836:
+			return "EVENT_NETWORK_POSSE_DATA_OR_MEMBERSHIP_CHANGED";
+		case -1730772208:
+			return "EVENT_OBJECT_INTERACTION";
+		case joaat("EVENT_SHOCKING_PROPERTY_DAMAGE"):
+			return "EVENT_SHOCKING_PROPERTY_DAMAGE";
+		case joaat("EVENT_SHOCKING_ENTITY_LASSOED"):
+			return "EVENT_SHOCKING_ENTITY_LASSOED";
+		case -1692828063:
+			return "EVENT_NETWORK_POSSE_MEMBER_DISBANDED";
+		case -1691761750:
+			return "EVENT_LEADER_ENTERED_COVER";
+		case -1688530399:
+			return "EVENT_NETWORK_NETWORK_ROS_CHANGED";
+		case -1682387274:
+			return "EVENT_PLAYER_MOUNT_WILD_HORSE";
+		case joaat("EVENT_SHOCKING_RUNNING_STAMPEDE"):
+			return "EVENT_SHOCKING_RUNNING_STAMPEDE";
+		case -1651585854:
+			return "EVENT_HITCH_ANIMAL";
+		case joaat("EVENT_SHOCKING_PAIN_VOCALIZATION"):
+			return "EVENT_SHOCKING_PAIN_VOCALIZATION";
+		case joaat("EVENT_SHOCKING_ENTITY_HOGTIED"):
+			return "EVENT_SHOCKING_ENTITY_HOGTIED";
+		case -1578459229:
+			return "EVENT_NETWORK_POSSE_MEMBER_SET_ACTIVE";
+		case joaat("EVENT_LASSO_DETACHED"):
+			return "EVENT_LASSO_DETACHED";
+		case joaat("EVENT_BEING_LOOTED"):
+			return "EVENT_BEING_LOOTED";
+		case -1538469261:
+			return "EVENT_PERSCHAR_PED_SPAWNED";
+		case -1513138189:
+			return "EVENT_NETWORK_POSSE_STATS_READ_COMPLETE";
+		case -1511724297:
+			return "EVENT_LOOT";
+		case -1509407906:
+			return "EVENT_LOOT_VALIDATION_FAIL";
+		case joaat("EVENT_SHOT_FIRED_BULLET_IMPACT"):
+			return "EVENT_SHOT_FIRED_BULLET_IMPACT";
+		case -1500256914:
+			return "EVENT_NETWORK_PERMISSION_CHECK_RESULT";
+		case joaat("EVENT_CRIME_CRY_FOR_HELP"):
+			return "EVENT_CRIME_CRY_FOR_HELP";
+		case -1485628607:
+			return "EVENT_NETWORK_ATTEMPT_HOST_MIGRATION";
+		case -1482146560:
+			return "EVENT_NETWORK_PLAYER_JOIN_SESSION";
+		case -1471622011:
+			return "EVENT_NETWORK_DRAG_PED";
+		case joaat("EVENT_SHOCKING_SEEN_WEAPON_THREAT"):
+			return "EVENT_SHOCKING_SEEN_WEAPON_THREAT";
+		case joaat("EVENT_SHOCKING_SEEN_WEIRD_PED"):
+			return "EVENT_SHOCKING_SEEN_WEIRD_PED";
+		case joaat("EVENT_KNOCKEDOUT"):
+			return "EVENT_KNOCKEDOUT";
+		case joaat("EVENT_SHOCKING_PED_KNOCKED_OUT"):
+			return "EVENT_SHOCKING_PED_KNOCKED_OUT";
+		case joaat("EVENT_PED_COLLISION_WITH_PLAYER"):
+			return "EVENT_PED_COLLISION_WITH_PLAYER";
+		case joaat("EVENT_SHOCKING_CAR_PILE_UP"):
+			return "EVENT_SHOCKING_CAR_PILE_UP";
+		case -1373728085:
+			return "EVENT_WAIT_FOR_INTERACTION";
+		case -1373301352:
+			return "EVENT_NETWORK_PLAYER_SIGNED_ONLINE";
+		case joaat("EVENT_DEATH"):
+			return "EVENT_DEATH";
+		case joaat("EVENT_SHOCKING_SEEN_CONFRONTATION"):
+			return "EVENT_SHOCKING_SEEN_CONFRONTATION";
+		case joaat("EVENT_SHOCKING_BICYCLE_CRASH"):
+			return "EVENT_SHOCKING_BICYCLE_CRASH";
+		case joaat("EVENT_SHOCKING_NON_VIOLENT_WEAPON_AIMED_AT"):
+			return "EVENT_SHOCKING_NON_VIOLENT_WEAPON_AIMED_AT";
+		case -1325700282:
+			return "EVENT_NETWORK_SPECTATE_LOCAL";
+		case -1315570756:
+			return "EVENT_NETWORK_DAMAGE_ENTITY";
+		case -1315453179:
+			return "EVENT_NETWORK_CREW_JOINED";
+		case -1312424871:
+			return "EVENT_PLAYER_STRIPPED_WEAPON";
+		case joaat("EVENT_SHOCKING_PED_RUN_OVER"):
+			return "EVENT_SHOCKING_PED_RUN_OVER";
+		case -1308368394:
+			return "EVENT_NETWORK_CREW_RANK_CHANGE";
+		case -1288743481:
+			return "EVENT_PED_TO_FLEE";
+		case -1286831256:
+			return "EVENT_PLAYER_HAT_KNOCKED_OFF";
+		case -1267317510:
+			return "EVENT_UI_QUICK_ITEM_USED";
+		case -1246119244:
+			return "EVENT_PED_ANIMAL_INTERACTION";
+		case -1241852893:
+			return "EVENT_CARRIABLE_VEHICLE_STOW_START";
+		case -1231347001:
+			return "EVENT_VEHICLE_DESTROYED";
+		case joaat("EVENT_UNIT_TEST_SCENARIO_EXIT"):
+			return "EVENT_UNIT_TEST_SCENARIO_EXIT";
+		case joaat("EVENT_SHOCKING_BEAT_DISTURBING_NEW"):
+			return "EVENT_SHOCKING_BEAT_DISTURBING_NEW";
+		case joaat("EVENT_SHOCKING_RANSACK"):
+			return "EVENT_SHOCKING_RANSACK";
+		case joaat("EVENT_SHOCKING_BEAT_DANGEROUS_NEW"):
+			return "EVENT_SHOCKING_BEAT_DANGEROUS_NEW";
+		case joaat("EVENT_LASSO_WHIZZED_BY"):
+			return "EVENT_LASSO_WHIZZED_BY";
+		case -1171710795:
+			return "EVENT_NETWORK_REVIVED_ENTITY";
+		case -1156527968:
+			return "EVENT_PLAYER_UNABLE_TO_ENTER_VEHICLE";
+		case joaat("EVENT_SEEN_TERRIFIED_PED"):
+			return "EVENT_SEEN_TERRIFIED_PED";
+		case -1147066642:
+			return "EVENT_NETWORK_TOO_MANY_SCRIPTED_GAME_EVENTS";
+		case joaat("EVENT_SHOCKING_STRANGE_OUTFIT"):
+			return "EVENT_SHOCKING_STRANGE_OUTFIT";
+		case -1130756835:
+			return "EVENT_DAILY_CHALLENGE_STREAK_COMPLETED";
+		case joaat("EVENT_SHOCKING_BEAT_INTERESTING_NEW"):
+			return "EVENT_SHOCKING_BEAT_INTERESTING_NEW";
+		case -1126217932:
+			return "EVENT_NETWORK_MINIGAME_REQUEST_COMPLETE";
+		case joaat("EVENT_SHOCKING_ITEM_STOLEN"):
+			return "EVENT_SHOCKING_ITEM_STOLEN";
+		case joaat("EVENT_SHOT_FIRED_WHIZZED_BY"):
+			return "EVENT_SHOT_FIRED_WHIZZED_BY";
+		case joaat("EVENT_SHOCKING_PLAYER_GRIEFING"):
+			return "EVENT_SHOCKING_PLAYER_GRIEFING";
+		case -1065733433:
+			return "EVENT_NETWORK_HOGTIE_BEGIN";
+		case joaat("EVENT_WHISTLING_HEARD"):
+			return "EVENT_WHISTLING_HEARD";
+		case -1034120588:
+			return "EVENT_HELP_TEXT_REQUEST";
+		case -1024103845:
+			return "EVENT_REACTION_COMBAT_VICTORY";
+		case joaat("EVENT_POTENTIAL_CRIME"):
+			return "EVENT_POTENTIAL_CRIME";
+		case -1009774763:
+			return "EVENT_ERRORS_GLOBAL_BLOCK_INACCESSIBLE";
+		case -1002640900:
+			return "EVENT_NETWORK_PRESENCE_EMAIL";
+		case joaat("EVENT_SHOT_FIRED_BASE"):
+			return "EVENT_SHOT_FIRED_BASE";
+		case joaat("EVENT_SHOCKING_BEAT_ALARMING_NEW"):
+			return "EVENT_SHOCKING_BEAT_ALARMING_NEW";
+		case -992702923:
+			return "EVENT_ERRORS_ARRAY_OVERFLOW";
+		case joaat("EVENT_PLAYER_DEATH"):
+			return "EVENT_PLAYER_DEATH";
+		case joaat("EVENT_DAMAGE"):
+			return "EVENT_DAMAGE";
+		case joaat("EVENT_POTENTIAL_WALK_INTO_FIRE"):
+			return "EVENT_POTENTIAL_WALK_INTO_FIRE";
+		case -968272321:
+			return "EVENT_MOUNT_REACTION";
+		case joaat("EVENT_SHOCKING_POTENTIAL_BLAST"):
+			return "EVENT_SHOCKING_POTENTIAL_BLAST";
+		case joaat("EVENT_WITHIN_LAW_RESPONSE_AREA"):
+			return "EVENT_WITHIN_LAW_RESPONSE_AREA";
+		case joaat("EVENT_POTENTIAL_BE_WALKED_INTO"):
+			return "EVENT_POTENTIAL_BE_WALKED_INTO";
+		case -930155091:
+			return "EVENT_NETWORK_CASHINVENTORY_NOTIFICATION";
+		case -921472336:
+			return "EVENT_ERRORS_UNKNOWN_ERROR";
+		case -919500771:
+			return "EVENT_NETWORK_HOGTIE_END";
+		case joaat("EVENT_OBJECT_COLLISION"):
+			return "EVENT_OBJECT_COLLISION";
+		case joaat("EVENT_VEHICLE_WAITING_ON_PED_TO_MOVE_AWAY"):
+			return "EVENT_VEHICLE_WAITING_ON_PED_TO_MOVE_AWAY";
+		case -895552461:
+			return "EVENT_PICKUP_SPAWNED";
+		case joaat("EVENT_RESPONDED_TO_THREAT"):
+			return "EVENT_RESPONDED_TO_THREAT";
+		case -885048077:
+			return "EVENT_NETWORK_VEHICLE_LOOTED";
+		case joaat("EVENT_SHOCKING_SEEN_GANG_FIGHT"):
+			return "EVENT_SHOCKING_SEEN_GANG_FIGHT";
+		case -880791236:
+			return "EVENT_NETWORK_SCADMIN_PLAYER_UPDATED";
+		case joaat("EVENT_SHOCKING_SEEN_PED_INTIMIDATED"):
+			return "EVENT_SHOCKING_SEEN_PED_INTIMIDATED";
+		case joaat("EVENT_POTENTIAL_THREAT_APPROACHING"):
+			return "EVENT_POTENTIAL_THREAT_APPROACHING";
+		case -857756425:
+			return "EVENT_NETWORK_SESSION_MERGE_START";
+		case -843924932:
+			return "EVENT_NETWORK_PLAYER_DROPPED_PORTABLE_PICKUP";
+		case -843555838:
+			return "EVENT_SCENARIO_DESTROY_PROP";
+		case joaat("EVENT_CRIME_REPORTED"):
+			return "EVENT_CRIME_REPORTED";
+		case joaat("EVENT_SHOCKING_FISHING_CAST"):
+			return "EVENT_SHOCKING_FISHING_CAST";
+		case -818205375:
+			return "EVENT_STAT_VALUE_CHANGED";
+		case joaat("EVENT_PED_ENTERED_MY_VEHICLE"):
+			return "EVENT_PED_ENTERED_MY_VEHICLE";
+		case joaat("EVENT_SHOCKING_SIREN"):
+			return "EVENT_SHOCKING_SIREN";
+		case -751866762:
+			return "EVENT_STATIC_COUNT_REACHED_MAX";
+		case -745090075:
+			return "EVENT_IMPENDING_SAMPLE_PROMPT";
+		case joaat("EVENT_SHOCKING_TOXIC_MOONSHINE"):
+			return "EVENT_SHOCKING_TOXIC_MOONSHINE";
+		case -725272239:
+			return "EVENT_NETWORK_ROCKSTAR_INVITE_RECEIVED";
+		case -716406075:
+			return "EVENT_NETWORK_FRIEND_STATUS_UPDATED";
+		case joaat("EVENT_SHOCKING_DOOR_BROKEN"):
+			return "EVENT_SHOCKING_DOOR_BROKEN";
+		case -687266558:
+			return "EVENT_PICKUP_CARRIABLE";
+		case -684883982:
+			return "EVENT_NETWORK_CLOUD_EVENT";
+		case joaat("EVENT_SHOCKING_PLAYER_POURING_MOONSHINE"):
+			return "EVENT_SHOCKING_PLAYER_POURING_MOONSHINE";
+		case -660243554:
+			return "EVENT_STUCK_IN_AIR";
+		case joaat("EVENT_SHOCKING_WITNESS_REPORTING"):
+			return "EVENT_SHOCKING_WITNESS_REPORTING";
+		case joaat("EVENT_RECOVER_AFTER_KNOCKOUT"):
+			return "EVENT_RECOVER_AFTER_KNOCKOUT";
+		case joaat("EVENT_SHOCKING_GUARD_DOG_BARKING"):
+			return "EVENT_SHOCKING_GUARD_DOG_BARKING";
+		case -648745775:
+			return "EVENT_NETWORK_GANG";
+		case -642309294:
+			return "EVENT_NETWORK_SCADMIN_RECEIVED_CASH";
+		case -634062504:
+			return "EVENT_NETWORK_SC_FEED_POST_NOTIFICATION";
+		case joaat("EVENT_SHOCKING_TOXIC_MOONSHINE_CLOUD"):
+			return "EVENT_SHOCKING_TOXIC_MOONSHINE_CLOUD";
+		case -617453104:
+			return "EVENT_CHALLENGE_REWARD";
+		case joaat("EVENT_LASSO_HIT"):
+			return "EVENT_LASSO_HIT";
+		case joaat("EVENT_SHOCKING_PLAYER_ARRIVAL"):
+			return "EVENT_SHOCKING_PLAYER_ARRIVAL";
+		case joaat("EVENT_DRAFT_ANIMAL_DETACHED_FROM_VEHICLE"):
+			return "EVENT_DRAFT_ANIMAL_DETACHED_FROM_VEHICLE";
+		case joaat("EVENT_SHOT_FIRED"):
+			return "EVENT_SHOT_FIRED";
+		case -582361627:
+			return "EVENT_CARRIABLE_PROMPT_INFO_REQUEST";
+		case joaat("EVENT_SHOCKING_PED_TIED_BY_BOLAS"):
+			return "EVENT_SHOCKING_PED_TIED_BY_BOLAS";
+		case -569301261:
+			return "EVENT_MISS_INTENDED_TARGET";
+		case joaat("EVENT_SHOCKING_VISIBLE_REACTION"):
+			return "EVENT_SHOCKING_VISIBLE_REACTION";
+		case joaat("EVENT_REACTION_ANALYSIS_ACTION"):
+			return "EVENT_REACTION_ANALYSIS_ACTION";
+		case joaat("EVENT_SHOCKING_DANGEROUS_ANIMAL"):
+			return "EVENT_SHOCKING_DANGEROUS_ANIMAL";
+		case -526667468:
+			return "EVENT_NETWORK_BAIL_DECISION_PENDING";
+		case -507840394:
+			return "EVENT_NETWORK_SCRIPT_EVENT";
+		case joaat("EVENT_HORSE_STARTED_BREAKING"):
+			return "EVENT_HORSE_STARTED_BREAKING";
+		case -496141780:
+			return "EVENT_SCENARIO_RELEASE_BUTTON";
+		case joaat("EVENT_POTENTIAL_GET_RUN_OVER"):
+			return "EVENT_POTENTIAL_GET_RUN_OVER";
+		case -474465748:
+			return "EVENT_LEADER_UNHOLSTERED_WEAPON";
+		case -467733578:
+			return "EVENT_NETWORK_HOST_MIGRATION";
+		case joaat("EVENT_INJURED_DRIVER"):
+			return "EVENT_INJURED_DRIVER";
+		case -462231716:
+			return "EVENT_SADDLE_TRANSFER";
+		case -456923784:
+			return "EVENT_SCENARIO_REMOVE_PED";
+		case joaat("EVENT_SHOUT_TARGET_POSITION"):
+			return "EVENT_SHOUT_TARGET_POSITION";
+		case -454144443:
+			return "EVENT_NETWORK_PLAYER_COLLECTED_PICKUP";
+		case joaat("EVENT_SHOCKING_PLAYER_WITHIN_LOCKDOWN_REGION"):
+			return "EVENT_SHOCKING_PLAYER_WITHIN_LOCKDOWN_REGION";
+		case -439157431:
+			return "EVENT_CLEAR_PED_TASKS";
+		case -437497832:
+			return "EVENT_NETWORK_PLAYER_LEFT_SCRIPT";
+		case joaat("EVENT_FOOT_STEP_HEARD"):
+			return "EVENT_FOOT_STEP_HEARD";
+		case -421353837:
+			return "EVENT_NETWORK_POSSE_DISBANDED";
+		case joaat("EVENT_CRIME_WITNESSED"):
+			return "EVENT_CRIME_WITNESSED";
+		case -406996059:
+			return "EVENT_ACQUAINTANCE_PED_RESPECT";
+		case joaat("EVENT_SHOCKING_BICYCLE_ON_PAVEMENT"):
+			return "EVENT_SHOCKING_BICYCLE_ON_PAVEMENT";
+		case joaat("EVENT_SHOCKING_CAR_ALARM"):
+			return "EVENT_SHOCKING_CAR_ALARM";
+		case -378297983:
+			return "EVENT_REACTION_INVESTIGATE_DEAD_PED";
+		case -369170747:
+			return "EVENT_PLAYER_HAT_EQUIPPED";
+		case joaat("EVENT_SHOCKING_HORSE_FLEE_FROM_PLAYER_PROMPT"):
+			return "EVENT_SHOCKING_HORSE_FLEE_FROM_PLAYER_PROMPT";
+		case -346212524:
+			return "EVENT_UI_ITEM_INSPECT_ACTIONED";
+		case -339257625:
+			return "EVENT_NETWORK_EMAIL_RECEIVED";
+		case joaat("EVENT_SHOCKING_AUDIBLE_REACTION"):
+			return "EVENT_SHOCKING_AUDIBLE_REACTION";
+		case joaat("EVENT_PED_RAN_OVER_SCRIPT"):
+			return "EVENT_PED_RAN_OVER_SCRIPT";
+		case joaat("EVENT_ENTITY_BROKEN"):
+			return "EVENT_ENTITY_BROKEN";
+		case -308071988:
+			return "EVENT_NETWORK_POSSE_LEFT";
+		case joaat("EVENT_DUMMY_CONVERSION"):
+			return "EVENT_DUMMY_CONVERSION";
+		case -295316025:
+			return "EVENT_PROVIDING_COVER";
+		case joaat("EVENT_CALL_FOR_BACKUP"):
+			return "EVENT_CALL_FOR_BACKUP";
+		case joaat("EVENT_SHOCKING_TRAIN_WHISTLE"):
+			return "EVENT_SHOCKING_TRAIN_WHISTLE";
+		case joaat("EVENT_HELP_AMBIENT_FRIEND"):
+			return "EVENT_HELP_AMBIENT_FRIEND";
+		case joaat("EVENT_INJURED_RIDER"):
+			return "EVENT_INJURED_RIDER";
+		case -240786091:
+			return "EVENT_HITCHING_POST";
+		case -231935285:
+			return "EVENT_NETWORK_POSSE_CREATED";
+		case -231390325:
+			return "EVENT_VOICE_SESSION_ENDED";
+		case joaat("EVENT_FRIENDLY_AIMED_AT"):
+			return "EVENT_FRIENDLY_AIMED_AT";
+		case joaat("EVENT_ACQUAINTANCE_PED_DEAD"):
+			return "EVENT_ACQUAINTANCE_PED_DEAD";
+		case joaat("EVENT_SHOCKING_PED_JUMP"):
+			return "EVENT_SHOCKING_PED_JUMP";
+		case joaat("EVENT_SHOCKING_BEAT_DANGEROUS_GO_INSIDE_NEW"):
+			return "EVENT_SHOCKING_BEAT_DANGEROUS_GO_INSIDE_NEW";
+		case joaat("EVENT_SHOCKING_CAR_ON_CAR"):
+			return "EVENT_SHOCKING_CAR_ON_CAR";
+		case joaat("EVENT_SHOCKING_BEAT_AMUSING"):
+			return "EVENT_SHOCKING_BEAT_AMUSING";
+		case -178091376:
+			return "EVENT_PLAYER_COLLECTED_AMBIENT_PICKUP";
+		case joaat("EVENT_SHOCKING_SEEN_MELEE_ACTION"):
+			return "EVENT_SHOCKING_SEEN_MELEE_ACTION";
+		case joaat("EVENT_EXPLOSION_HEARD"):
+			return "EVENT_EXPLOSION_HEARD";
+		case joaat("EVENT_ENTITY_EXPLOSION"):
+			return "EVENT_ENTITY_EXPLOSION";
+		case -111015184:
+			return "EVENT_NETWORK_KNOCKEDOUT_ENTITY";
+		case -97516606:
+			return "EVENT_NETWORK_LASSO_ATTACH";
+		case joaat("EVENT_VEHICLE_DAMAGE_WEAPON"):
+			return "EVENT_VEHICLE_DAMAGE_WEAPON";
+		case -84591983:
+			return "EVENT_PLAYER_LOCK_ON_TARGET";
+		case -69092029:
+			return "EVENT_LEADER_EXITED_CAR_AS_DRIVER";
+		case -60262143:
+			return "EVENT_TRANSITION_TO_HOGTIED";
+		case -45008988:
+			return "EVENT_SCENARIO_ADD_PED";
+		case joaat("EVENT_ANIMAL_DETECTED_PREY"):
+			return "EVENT_ANIMAL_DETECTED_PREY";
+		case joaat("EVENT_SHOCKING_BEAT_INTERESTING"):
+			return "EVENT_SHOCKING_BEAT_INTERESTING";
+		case -20789381:
+			return "EVENT_LEADER_ENTERED_CAR_AS_DRIVER";
+		case 0:
+			return "EVENT_INVALID";
+		case 23105215:
+			return "EVENT_NETWORK_POSSE_LEADER_SET_ACTIVE";
+		case joaat("EVENT_SHOCKING_BEAT_DISTURBING"):
+			return "EVENT_SHOCKING_BEAT_DISTURBING";
+		case 71122427:
+			return "EVENT_START_CONVERSATION";
+		case joaat("EVENT_SHOCKING_SEEN_CAR_STOLEN"):
+			return "EVENT_SHOCKING_SEEN_CAR_STOLEN";
+		case joaat("EVENT_SHOCKING_MAD_DRIVER"):
+			return "EVENT_SHOCKING_MAD_DRIVER";
+		case joaat("EVENT_SHOCKING_MAD_DRIVER_BICYCLE"):
+			return "EVENT_SHOCKING_MAD_DRIVER_BICYCLE";
+		case 141007368:
+			return "EVENT_NETWORK_LOOT_CLAIMED";
+		case joaat("EVENT_SHOCKING_UNCONSCIOUS_PED"):
+			return "EVENT_SHOCKING_UNCONSCIOUS_PED";
+		case joaat("EVENT_SHOCKING_HIJACKING"):
+			return "EVENT_SHOCKING_HIJACKING";
+		case joaat("EVENT_ON_FIRE"):
+			return "EVENT_ON_FIRE";
+		case joaat("EVENT_SHOCKING_DISTURBANCE"):
+			return "EVENT_SHOCKING_DISTURBANCE";
+		case joaat("EVENT_GUN_AIMED_AT"):
+			return "EVENT_GUN_AIMED_AT";
+		case joaat("EVENT_SHOCKING_BEAT_INSIGNIFICANT_NEW"):
+			return "EVENT_SHOCKING_BEAT_INSIGNIFICANT_NEW";
+		case 163683216:
+			return "EVENT_NETWORK_SIGN_IN_STATE_CHANGED";
+		case 176872144:
+			return "EVENT_NETWORK_POSSE_MEMBER_KICKED";
+		case joaat("EVENT_PED_SEEN_DEAD_PED"):
+			return "EVENT_PED_SEEN_DEAD_PED";
+		case 182250203:
+			return "EVENT_CLIMB_LADDER_ON_ROUTE";
+		case joaat("EVENT_SHOCKING_HORSE_REARED"):
+			return "EVENT_SHOCKING_HORSE_REARED";
+		case 205245793:
+			return "EVENT_COMMUNICATE_EVENT";
+		case 212329117:
+			return "EVENT_NETWORK_FRIENDS_LIST_UPDATED";
+		case joaat("EVENT_SHOCKING_EXPLOSION"):
+			return "EVENT_SHOCKING_EXPLOSION";
+		case 218595333:
+			return "EVENT_HORSE_BROKEN";
+		case joaat("EVENT_SHOCKING_SHOP_ROBBED"):
+			return "EVENT_SHOCKING_SHOP_ROBBED";
+		case 237247060:
+			return "EVENT_NETWORK_POSSE_PRESENCE_REQUEST_COMPLETE";
+		case 239947537:
+			return "EVENT_NETWORK_SIGN_IN_START_NEW_GAME";
+		case joaat("EVENT_SCRIPT_COMMAND"):
+			return "EVENT_SCRIPT_COMMAND";
+		case joaat("EVENT_SHOCKING_PLAYER_RUNNING"):
+			return "EVENT_SHOCKING_PLAYER_RUNNING";
+		case joaat("EVENT_PED_ON_VEHICLE_ROOF"):
+			return "EVENT_PED_ON_VEHICLE_ROOF";
+		case joaat("EVENT_WON_APPROACH_ELECTION"):
+			return "EVENT_WON_APPROACH_ELECTION";
+		case 295704064:
+			return "EVENT_VOICE_CONNECTION_REQUESTED";
+		case 295876924:
+			return "EVENT_CUT_FREE";
+		case joaat("EVENT_SHOCKING_SEEN_NICE_CAR"):
+			return "EVENT_SHOCKING_SEEN_NICE_CAR";
+		case 304848651:
+			return "EVENT_NONE";
+		case 313219550:
+			return "EVENT_PLAYER_GREETED_PED";
+		case joaat("EVENT_PLAYER_COLLISION_WITH_PED"):
+			return "EVENT_PLAYER_COLLISION_WITH_PED";
+		case joaat("EVENT_INJURED_OWNER"):
+			return "EVENT_INJURED_OWNER";
+		case joaat("EVENT_RAN_OVER_PED"):
+			return "EVENT_RAN_OVER_PED";
+		case 353377915:
+			return "EVENT_HOGTIED_ENTITY_PICKED_UP";
+		case joaat("EVENT_SUSPICIOUS_ACTIVITY"):
+			return "EVENT_SUSPICIOUS_ACTIVITY";
+		case joaat("EVENT_SHOCKING_IN_DANGEROUS_VEHICLE"):
+			return "EVENT_SHOCKING_IN_DANGEROUS_VEHICLE";
+		case 397004310:
+			return "EVENT_ERRORS_INSTRUCTION_LIMIT";
+		case joaat("EVENT_ENTITY_DAMAGED"):
+			return "EVENT_ENTITY_DAMAGED";
+		case joaat("EVENT_SHOCKING_WITNESS_CALL_FOR_LAW"):
+			return "EVENT_SHOCKING_WITNESS_CALL_FOR_LAW";
+		case 413931470:
+			return "EVENT_COMBAT_TAUNT";
+		case 415022413:
+			return "EVENT_PLAYER_SIM_UPDATE";
+		case 415576404:
+			return "EVENT_NETWORK_POSSE_DATA_CHANGED";
+		case joaat("EVENT_HEARD_DEAD_PED_COLLISION"):
+			return "EVENT_HEARD_DEAD_PED_COLLISION";
+		case joaat("EVENT_ACQUAINTANCE_PED_HATE"):
+			return "EVENT_ACQUAINTANCE_PED_HATE";
+		case joaat("EVENT_DRAGGED_OUT_CAR"):
+			return "EVENT_DRAGGED_OUT_CAR";
+		case 446963576:
+			return "EVENT_NETWORK_CASHINVENTORY_DELETE_CHAR";
+		case 453501714:
+			return "EVENT_NETWORK_HUB_UPDATE";
+		case joaat("EVENT_SHOCKING_BEAT_TERRIFYING"):
+			return "EVENT_SHOCKING_BEAT_TERRIFYING";
+		case 498393689:
+			return "EVENT_PLAYER_HAT_REMOVED_AT_SHOP";
+		case joaat("EVENT_SHOCKING_PED_ENTERED_COVER"):
+			return "EVENT_SHOCKING_PED_ENTERED_COVER";
+		case joaat("EVENT_SHOCKING_PED_SHOT"):
+			return "EVENT_SHOCKING_PED_SHOT";
+		case joaat("EVENT_SHOCKING_VISIBLE_LIT_EXPLOSIVE"):
+			return "EVENT_SHOCKING_VISIBLE_LIT_EXPLOSIVE";
+		case joaat("EVENT_ACQUAINTANCE_PED_WANTED"):
+			return "EVENT_ACQUAINTANCE_PED_WANTED";
+		case joaat("EVENT_SHOCKING_BEAT_DANGEROUS"):
+			return "EVENT_SHOCKING_BEAT_DANGEROUS";
+		case 516249386:
+			return "EVENT_NETWORK_JOIN_REQUEST_TIMED_OUT";
+		case 519123279:
+			return "EVENT_MUST_LEAVE_BOAT";
+		case 526946626:
+			return "EVENT_GET_UP";
+		case joaat("EVENT_SHOCKING_MULTIKILL"):
+			return "EVENT_SHOCKING_MULTIKILL";
+		case 543140406:
+			return "EVENT_NETWORK_ROCKSTAR_INVITE_REMOVED";
+		case 545528824:
+			return "EVENT_NETWORK_INCREMENT_STAT";
+		case 557673123:
+			return "EVENT_NETWORK_CHEAT_TRIGGERED";
+		case joaat("EVENT_ANIMAL_DETECTED_TRAIN"):
+			return "EVENT_ANIMAL_DETECTED_TRAIN";
+		case joaat("EVENT_SHOCKING_PLAYER_LAND"):
+			return "EVENT_SHOCKING_PLAYER_LAND";
+		case joaat("EVENT_BOLAS_HIT"):
+			return "EVENT_BOLAS_HIT";
+		case 586277309:
+			return "EVENT_NETWORK_SOCIAL_CLUB_ACCOUNT_LINKED";
+		case 587071841:
+			return "EVENT_NETWORK_APP_LAUNCHED";
+		case joaat("EVENT_INJURED_CRY_FOR_HELP"):
+			return "EVENT_INJURED_CRY_FOR_HELP";
+		case joaat("EVENT_POTENTIAL_BLAST"):
+			return "EVENT_POTENTIAL_BLAST";
+		case joaat("EVENT_SHOCKING_PLANE_FLY_BY"):
+			return "EVENT_SHOCKING_PLANE_FLY_BY";
+		case 671637744:
+			return "EVENT_REACTION_INVESTIGATE_THREAT";
+		case 676208328:
+			return "EVENT_NETWORK_INCAPACITATED_ENTITY";
+		case 678947301:
+			return "EVENT_NETWORK_GANG_WAYPOINT_CHANGED";
+		case joaat("EVENT_SHOCKING_BEAT_AMUSING_NEW"):
+			return "EVENT_SHOCKING_BEAT_AMUSING_NEW";
+		case 701022886:
+			return "EVENT_NETWORK_BAIL_DECISION_MADE";
+		case joaat("EVENT_PULLED_FROM_MOUNT"):
+			return "EVENT_PULLED_FROM_MOUNT";
+		case 735942751:
+			return "EVENT_PED_CREATED";
+		case joaat("EVENT_SHOCKING_INTERESTING_MELEE_FIGHT"):
+			return "EVENT_SHOCKING_INTERESTING_MELEE_FIGHT";
+		case 750867124:
+			return "EVENT_TEXT_MESSAGE_RECEIVED";
+		case 753021595:
+			return "EVENT_NETWORK_CREW_KICKED";
+		case 769834622:
+			return "EVENT_LOCKED_DOOR";
+		case joaat("EVENT_DISTURBANCE"):
+			return "EVENT_DISTURBANCE";
+		case joaat("EVENT_SHOCKING_BEAT_SURPRISING_NEW"):
+			return "EVENT_SHOCKING_BEAT_SURPRISING_NEW";
+		case 797969925:
+			return "EVENT_NETWORK_POSSE_EX_INACTIVE_DISBANDED";
+		case 809652668:
+			return "EVENT_NETWORK_INVITE_RESPONSE";
+		case joaat("EVENT_PRE_MELEE_KILL"):
+			return "EVENT_PRE_MELEE_KILL";
+		case 832287042:
+			return "EVENT_PLAYER_ROBBED_PED";
+		case joaat("EVENT_SHOCKING_PURSUIT"):
+			return "EVENT_SHOCKING_PURSUIT";
+		case 867155253:
+			return "EVENT_CARRIABLE_VEHICLE_STOW_COMPLETE";
+		case joaat("EVENT_SHOCKING_DEAD_BODY"):
+			return "EVENT_SHOCKING_DEAD_BODY";
+		case joaat("EVENT_IN_AIR"):
+			return "EVENT_IN_AIR";
+		case joaat("EVENT_SHOCKING_DOOR_BARGED_OPEN"):
+			return "EVENT_SHOCKING_DOOR_BARGED_OPEN";
+		case joaat("EVENT_RIDER_DISMOUNTED"):
+			return "EVENT_RIDER_DISMOUNTED";
+		case joaat("EVENT_SHOCKING_ENGINE_REVVED"):
+			return "EVENT_SHOCKING_ENGINE_REVVED";
+		case joaat("EVENT_SHOCKING_THROWN_FROM_HORSE"):
+			return "EVENT_SHOCKING_THROWN_FROM_HORSE";
+		case 904577075:
+			return "EVENT_NETWORK_INVITE_RESULT";
+		case 904763044:
+			return "EVENT_CLOUD_FILE_RESPONSE";
+		case joaat("EVENT_ARMED_PED_APPROACHING"):
+			return "EVENT_ARMED_PED_APPROACHING";
+		case joaat("EVENT_SHOCKING_ENTERED_INTERIOR"):
+			return "EVENT_SHOCKING_ENTERED_INTERIOR";
+		case 936374126:
+			return "EVENT_PEER_WINDOW";
+		case joaat("EVENT_SHOCKING_FIRE"):
+			return "EVENT_SHOCKING_FIRE";
+		case 980298223:
+			return "EVENT_VOICE_CONNECTION_RESPONSE";
+		case 995882143:
+			return "EVENT_NETWORK_IS_VOLUME_EMPTY_RESULT";
+		case joaat("EVENT_SHOVE_PED"):
+			return "EVENT_SHOVE_PED";
+		case joaat("EVENT_NEW_TASK"):
+			return "EVENT_NEW_TASK";
+		case 1027163239:
+			return "EVENT_NETWORK_ONLINE_PERMISSIONS_UPDATED";
+		case 1028782110:
+			return "EVENT_NETWORK_CREW_INVITE_RECEIVED";
+		case 1028822748:
+			return "EVENT_ERRORS_GLOBAL_BLOCK_NOT_RESIDENT";
+		case joaat("EVENT_MOUNTED_COLLISION"):
+			return "EVENT_MOUNTED_COLLISION";
+		case 1047667690:
+			return "EVENT_NETWORK_POSSE_MEMBER_LEFT";
+		case joaat("EVENT_VEHICLE_COLLISION"):
+			return "EVENT_VEHICLE_COLLISION";
+		case 1068922597:
+			return "EVENT_VOICE_SESSION_STARTED";
+		case joaat("EVENT_SHOCKING_PLANTED_EXPLOSIVE"):
+			return "EVENT_SHOCKING_PLANTED_EXPLOSIVE";
+		case joaat("EVENT_INCOMING_THREAT"):
+			return "EVENT_INCOMING_THREAT";
+		case 1081092949:
+			return "EVENT_INVENTORY_ITEM_PICKED_UP";
+		case 1082572570:
+			return "EVENT_PLACE_CARRIABLE_ONTO_PARENT";
+		case 1113682948:
+			return "EVENT_ENTITY_DISARMED";
+		case 1121131740:
+			return "EVENT_NETWORK_EXTENDED_INVITE";
+		case joaat("EVENT_SHOCKING_PLAYER_CROUCHING_IN_FOLIAGE_WITH_WEAPON"):
+			return "EVENT_SHOCKING_PLAYER_CROUCHING_IN_FOLIAGE_WITH_WEAPON";
+		case joaat("EVENT_SHOCKING_PLAYER_REVIVED"):
+			return "EVENT_SHOCKING_PLAYER_REVIVED";
+		case 1165534493:
+			return "EVENT_HEADSHOT_BLOCKED_BY_HAT";
+		case 1176209503:
+			return "EVENT_PLAYER_LOOK_FOCUS";
+		case 1189677571:
+			return "EVENT_LEADER_LEFT_COVER";
+		case joaat("EVENT_SHOCKING_CRIME_SCENE"):
+			return "EVENT_SHOCKING_CRIME_SCENE";
+		case 1194448728:
+			return "EVENT_NETWORK_CREW_LEFT";
+		case 1197193638:
+			return "EVENT_PED_TO_CHASE";
+		case 1198436399:
+			return "EVENT_SHOUT_BLOCKING_LOS";
+		case joaat("EVENT_SHOCKING_MOUNT_STOLEN"):
+			return "EVENT_SHOCKING_MOUNT_STOLEN";
+		case 1208357138:
+			return "EVENT_CARRIABLE_UPDATE_CARRY_STATE";
+		case joaat("EVENT_SHOCKING_PED_PLANTING_EXPLOSIVE"):
+			return "EVENT_SHOCKING_PED_PLANTING_EXPLOSIVE";
+		case joaat("EVENT_INTERACTION_ACTION"):
+			return "EVENT_INTERACTION_ACTION";
+		case joaat("EVENT_SHOCKING_FLEEING_PED"):
+			return "EVENT_SHOCKING_FLEEING_PED";
+		case 1234058372:
+			return "EVENT_LEADER_HOLSTERED_WEAPON";
+		case 1234888675:
+			return "EVENT_NETWORK_CREW_CREATION";
+		case joaat("EVENT_HOGTIED"):
+			return "EVENT_HOGTIED";
+		case 1268264445:
+			return "EVENT_NETWORK_POSSE_JOINED";
+		case joaat("EVENT_SHOCKING_FLEEING_VEHICLE"):
+			return "EVENT_SHOCKING_FLEEING_VEHICLE";
+		case joaat("EVENT_OWNED_ENTITY_INTERACTION"):
+			return "EVENT_OWNED_ENTITY_INTERACTION";
+		case 1274067014:
+			return "EVENT_NETWORK_PLAYER_COLLECTED_PORTABLE_PICKUP";
+		case joaat("EVENT_SHOCKING_LAW_ARRESTING_CRIMINAL"):
+			return "EVENT_SHOCKING_LAW_ARRESTING_CRIMINAL";
+		case joaat("EVENT_SHOCKING_SPEECH"):
+			return "EVENT_SHOCKING_SPEECH";
+		case joaat("EVENT_PLAYER_IN_CLOSE_PROXIMITY_TO_HORSE"):
+			return "EVENT_PLAYER_IN_CLOSE_PROXIMITY_TO_HORSE";
+		case 1327216456:
+			return "EVENT_PED_WHISTLE";
+		case 1342634267:
+			return "EVENT_NETWORK_PED_HAT_SHOT_OFF";
+		case 1347843421:
+			return "EVENT_SHOCKING_ANIMAL_CHARGING";
+		case 1351025667:
+			return "EVENT_CHALLENGE_GOAL_COMPLETE";
+		case 1352063587:
+			return "EVENT_CONTAINER_INTERACTION";
+		case joaat("EVENT_PLAYER_ON_ROOFTOP"):
+			return "EVENT_PLAYER_ON_ROOFTOP";
+		case 1355399116:
+			return "EVENT_NETWORK_PLAYER_SIGNED_OFFLINE";
+		case joaat("EVENT_SHOCKING_REACTION_TEST_HIGH"):
+			return "EVENT_SHOCKING_REACTION_TEST_HIGH";
+		case 1373658008:
+			return "EVENT_NETWORK_PRIMARY_CREW_CHANGED";
+		case 1376140891:
+			return "EVENT_LOOT_COMPLETE";
+		case joaat("EVENT_SHOCKING_REACTION_TEST_ACTIVE_LOOK"):
+			return "EVENT_SHOCKING_REACTION_TEST_ACTIVE_LOOK";
+		case joaat("EVENT_ANIMAL_TAMING_CALLOUT"):
+			return "EVENT_ANIMAL_TAMING_CALLOUT";
+		case joaat("EVENT_FIRE_NEARBY"):
+			return "EVENT_FIRE_NEARBY";
+		case 1385704366:
+			return "EVENT_NETWORK_PICKUP_RESPAWNED";
+		case joaat("EVENT_PLAYER_PROMPT_TRIGGERED"):
+			return "EVENT_PLAYER_PROMPT_TRIGGERED";
+		case 1415355908:
+			return "EVENT_NETWORK_PRESENCE_STAT_UPDATE";
+		case 1417095237:
+			return "EVENT_BUCKED_OFF";
+		case joaat("EVENT_ANIMAL_DETECTED_THREAT"):
+			return "EVENT_ANIMAL_DETECTED_THREAT";
+		case 1434205464:
+			return "EVENT_NETWORK_PLAYER_SPAWN";
+		case joaat("EVENT_SHOCKING_HORN_SOUNDED"):
+			return "EVENT_SHOCKING_HORN_SOUNDED";
+		case joaat("EVENT_SHOCKING_PLAYER_CLIMB"):
+			return "EVENT_SHOCKING_PLAYER_CLIMB";
+		case 1473676746:
+			return "EVENT_PLAYER_DEBUG_TELEPORTED";
+		case joaat("EVENT_SHOCKING_BEAT_ALARMING"):
+			return "EVENT_SHOCKING_BEAT_ALARMING";
+		case joaat("EVENT_NEARBY_AMBIENT_THREAT"):
+			return "EVENT_NEARBY_AMBIENT_THREAT";
+		case joaat("EVENT_SHOCKING_MAD_DRIVER_EXTREME"):
+			return "EVENT_SHOCKING_MAD_DRIVER_EXTREME";
+		case 1505348054:
+			return "EVENT_INVENTORY_ITEM_REMOVED";
+		case 1538190288:
+			return "EVENT_IN_WATER";
+		case joaat("EVENT_ANIMAL_DETECTED_PREDATOR"):
+			return "EVENT_ANIMAL_DETECTED_PREDATOR";
+		case joaat("EVENT_COP_CAR_BEING_STOLEN"):
+			return "EVENT_COP_CAR_BEING_STOLEN";
+		case joaat("EVENT_SHOCKING_BEAT_DANGEROUS_GO_INSIDE"):
+			return "EVENT_SHOCKING_BEAT_DANGEROUS_GO_INSIDE";
+		case joaat("EVENT_RADIO_TARGET_POSITION"):
+			return "EVENT_RADIO_TARGET_POSITION";
+		case 1553659161:
+			return "EVENT_REVIVE_ENTITY";
+		case 1559647390:
+			return "EVENT_NETWORK_PICKUP_COLLECTION_FAILED";
+		case 1570376850:
+			return "EVENT_GET_OUT_OF_WATER";
+		case joaat("EVENT_SHOCKING_MUGGING"):
+			return "EVENT_SHOCKING_MUGGING";
+		case 1586716140:
+			return "EVENT_CLIMB_NAVMESH_ON_ROUTE";
+		case 1588672286:
+			return "EVENT_NETWORK_NOMINATED_GO_TO_NEXT_CONTENT_RESPONSE";
+		case joaat("EVENT_DEAD_PED_FOUND"):
+			return "EVENT_DEAD_PED_FOUND";
+		case joaat("EVENT_SHOCKING_INJURED_PED"):
+			return "EVENT_SHOCKING_INJURED_PED";
+		case joaat("EVENT_SHOCKING_PED_SCREAMED"):
+			return "EVENT_SHOCKING_PED_SCREAMED";
+		case joaat("EVENT_SHOCKING_SEEN_VEHICLE_TOWED"):
+			return "EVENT_SHOCKING_SEEN_VEHICLE_TOWED";
+		case 1626145032:
+			return "EVENT_NETWORK_PLAYER_MISSED_SHOT";
+		case 1626561060:
+			return "EVENT_PED_DESTROYED";
+		case 1629782592:
+			return "EVENT_NETWORK_REQUEST_DELAY";
+		case 1638298852:
+			return "EVENT_MOUNT_OVERSPURRED";
+		case 1640116056:
+			return "EVENT_LOOT_PLANT_START";
+		case 1652530845:
+			return "EVENT_STOP_CONVERSATION";
+		case 1655597605:
+			return "EVENT_PLAYER_HORSE_AGITATED_BY_ANIMAL";
+		case 1658389497:
+			return "EVENT_NETWORK_SESSION_EVENT";
+		case 1660856426:
+			return "EVENT_NETWORK_TIMED_EXPLOSION";
+		case joaat("EVENT_SHOCKING_PED_KNOCKED_INTO_BY_PLAYER"):
+			return "EVENT_SHOCKING_PED_KNOCKED_INTO_BY_PLAYER";
+		case 1669410864:
+			return "EVENT_CHALLENGE_GOAL_UPDATE";
+		case joaat("EVENT_SHOCKING_HELICOPTER_OVERHEAD"):
+			return "EVENT_SHOCKING_HELICOPTER_OVERHEAD";
+		case 1694142010:
+			return "EVENT_NETWORK_BOUNTY_REQUEST_COMPLETE";
+		case 1697477512:
+			return "EVENT_NETWORK_PLAYER_LEFT_SESSION";
+		case 1699948728:
+			return "EVENT_NETWORK_NOMINATED_GET_UPCOMING_CONTENT_RESPONSE";
+		case joaat("EVENT_SHOCKING_SEEN_PED_KILLED"):
+			return "EVENT_SHOCKING_SEEN_PED_KILLED";
+		case 1725992066:
+			return "EVENT_NETWORK_DEBUG_TOGGLE_MP";
+		case 1727082765:
+			return "EVENT_NETWORK_DROP_PED";
+		case 1731288223:
+			return "EVENT_NETWORK_CASHINVENTORY_TRANSACTION";
+		case joaat("EVENT_ACQUAINTANCE_PED_DISGUISE"):
+			return "EVENT_ACQUAINTANCE_PED_DISGUISE";
+		case 1741908893:
+			return "EVENT_NETWORK_AWARD_CLAIMED";
+		case joaat("EVENT_SHOCKING_SEEN_PED_LOOTED"):
+			return "EVENT_SHOCKING_SEEN_PED_LOOTED";
+		case joaat("EVENT_UNIDENTIFIED_PED"):
+			return "EVENT_UNIDENTIFIED_PED";
+		case joaat("EVENT_SHOCKING_PED_LEAPT_TO_TRANSPORT"):
+			return "EVENT_SHOCKING_PED_LEAPT_TO_TRANSPORT";
+		case joaat("EVENT_SHOCKING_TRESPASSING"):
+			return "EVENT_SHOCKING_TRESPASSING";
+		case 1784289253:
+			return "EVENT_TRIGGERED_ANIMAL_WRITHE";
+		case 1793200955:
+			return "EVENT_NETWORK_PED_DISARMED";
+		case 1794914733:
+			return "EVENT_ENTITY_HOGTIED";
+		case 1811873798:
+			return "EVENT_PLAYER_ANTAGONIZED_PED";
+		case 1814485447:
+			return "EVENT_NETWORK_PED_LEFT_BEHIND";
+		case 1827342969:
+			return "EVENT_NETWORK_CASH_TRANSACTION_LOG";
+		case 1830788491:
+			return "EVENT_NETWORK_POSSE_MEMBER_JOINED";
+		case 1832265142:
+			return "EVENT_NETWORK_VEHICLE_UNDRIVABLE";
+		case 1860341470:
+			return "EVENT_NETWORK_INVITE_UNAVAILABLE";
+		case joaat("EVENT_SHOCKING_DRIVING_ON_PAVEMENT"):
+			return "EVENT_SHOCKING_DRIVING_ON_PAVEMENT";
+		case joaat("EVENT_AMBIENT_THREAT_LEVEL_MAXED"):
+			return "EVENT_AMBIENT_THREAT_LEVEL_MAXED";
+		case 1890598297:
+			return "EVENT_NETWORK_PRESENCE_TRIGGER";
+		case joaat("EVENT_MELEE_ACTION"):
+			return "EVENT_MELEE_ACTION";
+		case 1908962476:
+			return "EVENT_OPEN_DOOR";
+		case 1924269094:
+			return "EVENT_CRIME_CONFIRMED";
+		case joaat("EVENT_SHOCKING_EQUIPPED_MASK"):
+			return "EVENT_SHOCKING_EQUIPPED_MASK";
+		case joaat("EVENT_SHOCKING_SEEN_INSULT"):
+			return "EVENT_SHOCKING_SEEN_INSULT";
+		case joaat("EVENT_INCAPACITATED"):
+			return "EVENT_INCAPACITATED";
+		case joaat("EVENT_SHOCKING_MELEE_FIGHT"):
+			return "EVENT_SHOCKING_MELEE_FIGHT";
+		case joaat("EVENT_GIVE_PED_TASK"):
+			return "EVENT_GIVE_PED_TASK";
+		case joaat("EVENT_EXPLOSION"):
+			return "EVENT_EXPLOSION";
+		case 1976253964:
+			return "EVENT_NETWORK_NETWORK_BAIL";
+		case joaat("EVENT_SHOCKING_VISIBLE_WEAPON"):
+			return "EVENT_SHOCKING_VISIBLE_WEAPON";
+		case 1994340821:
+			return "EVENT_POTENTIAL_WALK_INTO_OBJECT";
+		case 2004694700:
+			return "EVENT_ERRORS_STACK_OVERFLOW";
+		case 2012933482:
+			return "EVENT_CAR_UNDRIVEABLE";
+		case 2013393302:
+			return "EVENT_NETWORK_BULLET_IMPACTED_MULTIPLE_PEDS";
+		case 2030961287:
+			return "EVENT_PED_HAT_KNOCKED_OFF";
+		case 2034746601:
+			return "EVENT_SCENARIO_FORCE_ACTION";
+		case joaat("EVENT_SHOCKING_CAR_CRASH"):
+			return "EVENT_SHOCKING_CAR_CRASH";
+		case joaat("EVENT_SHOCKING_WINDOW_SMASHED"):
+			return "EVENT_SHOCKING_WINDOW_SMASHED";
+		case 2045969979:
+			return "EVENT_FLUSH_TASKS";
+		case joaat("EVENT_ACQUAINTANCE_PED_THIEF"):
+			return "EVENT_ACQUAINTANCE_PED_THIEF";
+		case 2058084749:
+			return "EVENT_NETWORK_POSSE_KICKED";
+		case 2058130545:
+			return "EVENT_NETWORK_PROJECTILE_NO_DAMAGE_IMPACT";
+		case joaat("EVENT_SHOCKING_REACTION_TEST_MEDIUM"):
+			return "EVENT_SHOCKING_REACTION_TEST_MEDIUM";
+		case joaat("EVENT_SHOCKING_PLAYER_RESTING"):
+			return "EVENT_SHOCKING_PLAYER_RESTING";
+		case joaat("EVENT_POTENTIAL_WALK_INTO_VEHICLE"):
+			return "EVENT_POTENTIAL_WALK_INTO_VEHICLE";
+		case joaat("EVENT_SHOCKING_PED_FALLING"):
+			return "EVENT_SHOCKING_PED_FALLING";
+		case 2099179610:
+			return "EVENT_ITEM_PROMPT_INFO_REQUEST";
+		case 2108920557:
+			return "EVENT_NETWORK_INBOX_MSGS_RCVD";
+		case 2114586158:
+			return "EVENT_NETWORK_CREW_DISBANDED";
+		case joaat("EVENT_SHOCKING_ABANDONED_VEHICLE"):
+			return "EVENT_SHOCKING_ABANDONED_VEHICLE";
+		case joaat("EVENT_ANIMAL_PROVOKED"):
+			return "EVENT_ANIMAL_PROVOKED";
+		case 2143094135:
+			return "EVENT_NETWORK_PLAYER_ARREST";
+		case 2145012826:
+			return "EVENT_ENTITY_DESTROYED";
+		default:
+			break;
+	}
+	if (iParam1 >= 1)
+	{
+		DEBUG::_0x83407B92D46F25C3(136, 0, "ERROR ENUM_TO_STRING - Unknown Enum Value ", iParam0, ", returning 'ENUM_NOT_FOUND'");
+	}
+	return "ENUM_NOT_FOUND";
+	if (iParam1 >= 1)
+	{
+		DEBUG::_0x83407B92D46F25C3(136, 0, "ERROR ENUM_TO_STRING - Unknown Enum Value ", iParam0, ", returning 'ENUM_NOT_FOUND'");
+	}
+	return "ENUM_NOT_FOUND";
+}
+
+void func_21(float fParam0, float fParam1, char* sParam2, char* sParam3)
+{
+	HUD::_DISPLAY_TEXT(MISC::_CREATE_VAR_STRING(10, "VAR_STRING_1", func_22(sParam3, joaat("COLOR_PURE_WHITE"))), fParam0, fParam1);
+}
+
+char* func_22(char* sParam0, int iParam1)
+{
+	if (iParam1 == joaat("COLOR_PURE_WHITE"))
+	{
+		return MISC::_CREATE_VAR_STRING(10, "LITERAL_STRING", sParam0);
+	}
+	return func_23(MISC::_CREATE_VAR_STRING(10, "LITERAL_STRING", sParam0), iParam1);
+}
+
+char* func_23(char* sParam0, int iParam1)
+{
+	return MISC::_CREATE_VAR_STRING(42, "COLOR_STRING", MISC::_CREATE_COLOR_STRING(iParam1), sParam0);
+}
+

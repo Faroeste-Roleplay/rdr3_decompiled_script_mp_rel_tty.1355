@@ -1,0 +1,14 @@
+void __EntryFunction__()
+{
+	DEBUG::_0xF0783374333FD8CE(8, 0, "init_global_block_creator - GLOBALS_BLOCK_MC_CREATOR allocated.");
+	if (SCRIPTS::_DOES_COMPRESSED_GLOBAL_BLOCK_BUFFER_EXIST(11))
+	{
+		SCRIPTS::_RESTORE_GLOBAL_BLOCK(11);
+	}
+	else
+	{
+		SCRIPTS::_STORE_GLOBAL_BLOCK(11);
+	}
+	SCRIPTS::TERMINATE_THIS_THREAD();
+}
+
